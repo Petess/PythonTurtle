@@ -15,34 +15,47 @@ def drawRegularPolygon( sides:int, sidelength:int, filledIn:bool, elColor:str ):
         end_fill()
 
 
-drawRegularPolygon( 4, 100, True, "red" )
-penup()
-forward(200)
-pendown()
-drawRegularPolygon( 5, 100, False, "blue") 
-penup()
-backward(400)
-pendown()
-drawRegularPolygon( 8,30, True, "green" ) 
-penup()
-right(90)
-forward(150)
-left(90)
-pendown()
-drawRegularPolygon( 3, 100, True, "orange" )
+def drawPolygonAt( xLocation:int, yLocation:int, numsides:int, sidelength:int, filledIn:bool, elColor:str ):
+    penup()
+    home()
+    
+    forward(xLocation)
+    left(90)
+    forward(yLocation)
+    right(90)
+    drawRegularPolygon( numsides, sidelength, filledIn, elColor )
 
-penup()
-forward(150)
+if __name__ == "__main__":
+    drawRegularPolygon( 4, 100, True, "red" )
+    penup()
+    forward(200)
+    pendown()
+    drawRegularPolygon( 5, 100, False, "blue") 
+    penup()
+    backward(400)
+    pendown()
+    drawRegularPolygon( 8,30, True, "green" ) 
+    penup()
+    right(90)
+    forward(150)
+    left(90)
+    pendown()
+    drawRegularPolygon( 3, 100, True, "orange" )
 
-pendown()
+    penup()
+    forward(150)
 
-drawRegularPolygon( 20,10, True, "grey" ) 
+    pendown()
 
-penup()
-forward(150)
+    drawRegularPolygon( 20,10, True, "grey" ) 
 
-pendown()
+    penup()
+    forward(150)
 
-drawRegularPolygon( 20,10, True, "lightgreen" ) 
+    pendown()
 
-done()
+    drawRegularPolygon( 20,10, True, "lightgreen" ) 
+
+    drawPolygonAt( 100, 100, 3, 50, True, "green" )
+
+    done()
